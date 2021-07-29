@@ -15,8 +15,10 @@ Use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/login', [UserController::class,'index']);
+Route::get("/login", [UserController::class,'index']);
 
-Route::post('/login', [UserController::class,'login']);
+Route::post("/login", [UserController::class,'login']);
 
-Route::get('/', [ProductController::class,'index']);
+Route::get("/", [ProductController::class,'index']);
+
+Route::get("detail/{id}", [ProductController::class,'detail']);

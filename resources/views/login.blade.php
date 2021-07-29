@@ -10,15 +10,15 @@
                 <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
             </div>
             <p style="text-align:center"> OR  </p>
-            <input type="email" id="inputEmail" name="email" class="form-control @error('title') is-invalid @enderror" placeholder="Email address" value="{{ old('email') }}" >
+            <input type="email" id="inputEmail" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email address" value="{{ old('email') }}" >
             @if ($errors -> has('email'))
                     <div class="invalid-feedback">
                         {{ $errors -> first('email') }}
                     </div>
                 @endif
             <br>
-            <input type="password" name="password" id="inputPassword" class="form-control @error('title') is-invalid @enderror" placeholder="Password" value="{{ old('password') }}">
-            @if ($errors -> has('user_password'))
+            <input type="password" name="password" id="inputPassword" class="form-control @error('password') is-invalid @enderror" placeholder="Password" value="{{ old('password') }}">
+            @if ($errors -> has('password'))
                     <div class="invalid-feedback">
                         {{ $errors -> first('password') }}
                     </div>
