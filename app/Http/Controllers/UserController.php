@@ -39,4 +39,24 @@ class UserController extends Controller
     }
 
    }
+
+   function register(Request $req){
+
+    $user = new User;
+    $user -> name = $req -> name;
+    $user -> email = $req -> email;
+    $user -> password = Hash::make($req -> password);
+    $user -> re_password = Hash::make($req -> repassword);
+    $user -> save();
+
+    if($user){
+        session() -> flash('msg','User Created Succsfully');
+        return redirect('login');
+    }
+    else{
+        session() -> flash('msg','Failed to create');
+        return redirect('login');
+    }
+
+   }
 }

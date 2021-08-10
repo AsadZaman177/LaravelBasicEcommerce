@@ -28,7 +28,11 @@
             <td> {{ $product->Description }}</td>
           </tr>
           <tr>
-            <td><button type="button" class="btn btn-primary">Add To Cart</button></td>
+            <td><form action="/add_cart" method="POST">
+              @csrf
+              <input type="hidden" name="productid" value="{{ $product->id }}">
+              <button class="btn btn-primary">Add To Cart</button>
+            </form></td>
             <td><button type="button" class="btn btn-success">Buy Now</button></td>
           </tr>
       </table>

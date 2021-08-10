@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'admin',
             'email'=>'admin@gmail.com',
             'password'=>Hash::make('admin123'),
-            're-password'=>Hash::make('admin123'),
+            're_password'=>Hash::make('admin123'),
         ]);
 
          DB::table('products')->insert([ 

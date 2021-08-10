@@ -1,3 +1,11 @@
+<?php 
+use App\Http\Controllers\ProductController;
+$total = 0;
+if (Session::has('user')){
+$total = ProductController::cartItem();
+}
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -13,6 +21,19 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">About</a>
         </li>
+        <?php if (Session::has('user')){ ?>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#"><bold><?php echo session('user')['name'] ?></bold></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/logout">Logout</a>
+          </li>
+        <?php } else { ?>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/login">Login/Register</a>
+          </li>
+        <?php } ?>
+
         </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -20,7 +41,7 @@
       </form>
        <ul class=" nav navbar-nav navbar-right">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Cart(0)</a>
+          <a class="nav-link active" aria-current="page" href="/cart">Cart(<?php echo $total ?>)</a>
         </li>
       </ul>
     </div>
